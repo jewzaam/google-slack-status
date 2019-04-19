@@ -7,8 +7,8 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/jewzaam/google-slack-status/google-slack-status/pkg/apis"
-	"github.com/jewzaam/google-slack-status/google-slack-status/pkg/controller"
+	"github.com/jewzaam/google-slack-status/pkg/apis"
+	"github.com/jewzaam/google-slack-status/pkg/controller"
 
 	"github.com/operator-framework/operator-sdk/pkg/k8sutil"
 	"github.com/operator-framework/operator-sdk/pkg/leader"

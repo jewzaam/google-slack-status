@@ -5,13 +5,13 @@ import (
 	"log"
 	"time"
 
-	utility "github.com/jewzaam/google-slack-status/pkg/utility"
+	gutility "github.com/jewzaam/google-slack-status/pkg/utility/google"
 
 	"google.golang.org/api/calendar/v3"
 )
 
 func main() {
-	client := utility.GetClient("credentials.json", "token.json")
+	client := gutility.GetClient("credentials.json", "token.json")
 
 	srv, err := calendar.New(client)
 	if err != nil {
