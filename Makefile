@@ -71,9 +71,12 @@ gocheck: ## Lint code
 	gofmt -s -l $(shell go list -f '{{ .Dir }}' ./... ) | grep ".*\.go"; if [ "$$?" = "0" ]; then gofmt -s -d $(shell go list -f '{{ .Dir }}' ./... ); exit 1; fi
 	go vet ./cmd/... ./pkg/...
 
-.PHONY: gobuild
-gobuild: gocheck gotest ## Build binary
+${BINFILE}:
+	$(MAKE) gocheck gotest
 	${GOENV} go build ${GOFLAGS} -o ${BINFILE} ${MAINPACKAGE_SERVICE}
+
+.PHONY: gobuild
+gobuild: ${BINFILE}
 
 .PHONY: gotest
 gotest:
@@ -96,5 +99,5 @@ env: isclean
 	echo OPERATOR_IMAGE_URI=$(OPERATOR_IMAGE_URI)
 
 .PHONY: run
-run: build
-	${DIRECTORY_OUTPUT}/${FILE_OUTPUT}
+run: gobuild
+	${BINFILE}

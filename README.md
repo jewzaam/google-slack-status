@@ -14,29 +14,23 @@ Design idea is to build in layers:
 4. run as an k8s operator (kubectl apply)
 5. run via OLM (openshift CatalogSource and Subscription)
 
-# make
+# How to...
 
-## default
+## Format Source
 
-target: build
+`make goformat`
 
-## format
+## Build Clean
 
-Reformats code.  Makes changes.
+`make goclean gobuild`
 
-## build
+## Run the Service
 
-PHONY, reference to the binary file.
-
-## clean
-
-Clears all built artifacts.
-
-## run
+`make run`
 
 Assumes you have a `credentials.json` file.  Will prompt you to authenticate via browser and writes `token.json`.  These two files are in `.gitignore` so it's safe to put them in the root of this repo.
 
-Will run the `build` target first, but won't clean.
+Will run the `gobuild` target first, but won't clean.
 
 # Packages
 
