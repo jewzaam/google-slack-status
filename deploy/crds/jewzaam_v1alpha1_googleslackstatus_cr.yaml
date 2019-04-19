@@ -1,0 +1,7 @@
+apiVersion: jewzaam.org/v1alpha1
+kind: GoogleSlackStatus
+metadata:
+  name: example-googleslackstatus
+spec:
+  # Add fields here
+  size: 3

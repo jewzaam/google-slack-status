@@ -1,0 +1,11 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: google-slack-status
+subjects:
+- kind: ServiceAccount
+  name: google-slack-status
+roleRef:
+  kind: Role
+  name: google-slack-status
+  apiGroup: rbac.authorization.k8s.io
